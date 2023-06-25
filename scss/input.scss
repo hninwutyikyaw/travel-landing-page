@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@400;500&display=swap");
+
+$font-family-sans-serif: "Poppins", sans-serif;
+$body-bg: hsl(0, 100%, 98%);
+
+$theme-colors: (
+  black-alpha-20: hsla(0, 0%, 0%, 0.2),
+  lavender-blush: hsl(0, 100%, 98%),
+  majorelle-blue: hsl(249, 95%, 63%),
+  majorelle-blue-alpha-5: hsla(249, 78%, 91%, 0.05),
+  misty-rose: hsl(0, 100%, 95%),
+  red-salsa-alpha-5: hsla(358, 77%, 86%, 0.05),
+  chrome-yellow-alpha-5: hsla(37, 79%, 89%, 0.05),
+  sunglow-alpha-10: hsla(48, 85%, 84%, 0.1),
+  gunmetal: hsl(209, 40%, 14%),
+  light-coral: hsl(357, 96%, 73%),
+  granite-gray: hsl(210, 4%, 38%),
+  sunglow: hsl(48, 100%, 50%),
+  english-vermillion: hsl(357, 64%, 53%),
+);
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 4.5,
+  7: $spacer * 6,
+);
+
+$position-values: (
+  0: 0,
+  10: -10px,
+  12: 12px,
+  20: 20px,
+  40: 40px,
+  50: 50%,
+  90: 90px,
+);
+
+//Navbar
+$navbar-nav-link-padding-x: 1.5rem;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  line-height: 2rem;
+}
+
+//Navbar
+.navbar-toggler {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+}
+
+//remove border and outline of navbar toggler
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar-toggler span {
+  margin: 0;
+  padding: 0;
+}
+
+.toggler-icon {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: hsl(249, 95%, 63%);
+  border-radius: 1px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s all ease-in-out;
+}
+
+.middle-bar {
+  margin-top: 0;
+}
+
+.navbar-toggler .top-bar {
+  margin-top: -20px;
+  transform: rotate(0deg);
+}
+
+.navbar-toggler .middle-bar {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.navbar-toggler .bottom-bar {
+  margin-top: 20px;
+  transform: rotate(0deg);
+}
+
+//Change cross animation
+.navbar-toggler.collapse .top-bar {
+  margin-top: 0;
+  transform: rotate(135deg);
+}
+
+.navbar-toggler.collapse .middle-bar {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.navbar-toggler.collapse .bottom-bar {
+  margin-top: 0;
+  transform: rotate(-135deg);
+}
+
+//when scroll
+.navbar-scroll {
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+//hover effect
+.nav-link {
+  position: relative;
+}
+
+a.nav-link:hover::after {
+  opacity: 1;
+}
+
+a.nav-link::after {
+  content: "";
+  top: 40%;
+  left: -17px;
+  width: 3px;
+  height: 11px;
+  background-color: hsl(249, 95%, 63%);
+  position: absolute;
+  opacity: 0;
+  transition: all 0.2s;
+  transform: translateX(10px);
+  border-radius: 5px;
+}
+
+.navbar-nav .nav-link.active {
+  color: hsl(249, 95%, 63%);
+}
+
+//About
+.card-img-top {
+  width: 50px;
+}
+
+//Destination
+.card-img {
+  overflow: hidden;
+}
+
+.card-img img {
+  transition: all 0.3s;
+}
+
+.card-img img:hover {
+  transform: scale(1.2);
+}
+
+//Experience
+.exp-img {
+  width: 400px;
+}
+
+//Gallery
+.gallery-img {
+  width: 100%;
+  height: 100%;
+}
+
+//Cta
+.cta-img {
+  background-image: url("../assets/img/cta-bg.jpg");
+}
+
+.social-icons:hover {
+  background-color: hsl(249, 95%, 63%);
+  color: lavenderblush !important;
+  border-radius: 100%;
+  transition: all 0.8s;
+}
+
+@include media-breakpoint-down(lg) {
+  .login-buttons {
+    min-width: 70%;
+    position: fixed;
+    bottom: 0;
+    padding: 20px;
+    border-top: 1px solid gray;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  a.nav-link::after {
+    top: auto;
+    bottom: 0;
+    width: 10px;
+    height: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@include media-breakpoint-only(xl) {
+  .gallery-img {
+    height: 220px;
+  }
+}
+@include media-breakpoint-only(xxl) {
+  .gallery-img {
+    height: 260px;
+  }
+}
